@@ -47,9 +47,10 @@ const lineBreak = (code: HTMLElement) => {
   let preWidth = code.getBoundingClientRect().width;
   debouncedLayout(code);
   const ro = new ResizeObserver(([entity]) => {
-      if (preWidth !== entity.contentRect.width) {
+      const width = entity.target.getBoundingClientRect().width;
+      if (preWidth !== width) {
         debouncedLayout(code);
-        preWidth = entity.contentRect.width;
+        preWidth = width;
       }
   });
   ro.observe(code);
