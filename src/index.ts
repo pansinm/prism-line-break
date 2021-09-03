@@ -45,13 +45,16 @@ const lineBreak = (code: HTMLElement) => {
   code.style.wordBreak = "break-all";
   code.style.whiteSpace = "pre-wrap";
   let preWidth = code.getBoundingClientRect().width;
+  let prevContent = code.innerHTML;
   debouncedLayout(code);
   const ro = new ResizeObserver(([entity]) => {
-      const width = entity.target.getBoundingClientRect().width;
-      if (preWidth !== width) {
-        debouncedLayout(code);
-        preWidth = width;
-      }
+    const width = entity.target.getBoundingClientRect().width;
+    const content = entity.target.innerHTML;
+    if (preWidth !== width || prevContent !== content) {
+      debouncedLayout(code);
+      preWidth = width;
+      prevContent = content;
+    }
   });
   ro.observe(code);
   return () => {
