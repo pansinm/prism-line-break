@@ -4,13 +4,16 @@
   "description": "prism line break",
   "main": "dist/index.js",
   "dependencies": {
+    "@types/lodash.debounce": "^4.0.6",
+    "lodash.debounce": "^4.0.8",
     "resize-observer": "^1.0.2"
   },
   "devDependencies": {
     "typescript": "^4.4.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "tsc"
   },
   "repository": {
     "type": "git",
