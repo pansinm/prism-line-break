@@ -1,7 +1,7 @@
 import { ResizeObserver } from "resize-observer";
 import debounce from "lodash.debounce";
 
-const layout = (code: HTMLElement) => {
+export const adjustLineNumber = (code: HTMLElement) => {
   // line number
   const numbers = code.querySelectorAll(".line-numbers-rows > span") || [];
   if (!numbers?.length) {
@@ -34,7 +34,7 @@ const layout = (code: HTMLElement) => {
   });
 };
 
-const debouncedLayout = debounce(layout, 100, {
+const debouncedLayout = debounce(adjustLineNumber, 100, {
   leading: true,
   trailing: true,
 });
@@ -44,8 +44,13 @@ const lineBreak = (code: HTMLElement) => {
   let whiteSpace = code.style.whiteSpace;
   code.style.wordBreak = "break-all";
   code.style.whiteSpace = "pre-wrap";
-  const ro = new ResizeObserver(() => {
-    debouncedLayout(code);
+  let preWidth = code.getBoundingClientRect().width;
+  debouncedLayout(code);
+  const ro = new ResizeObserver(([entity]) => {
+      if (preWidth !== entity.contentRect.width) {
+        debouncedLayout(code);
+        preWidth = entity.contentRect.width;
+      }
   });
   ro.observe(code);
   return () => {
