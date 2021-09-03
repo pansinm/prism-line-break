@@ -36,7 +36,7 @@ const layout = (code: HTMLElement) => {
 const lineBreak = (code: HTMLElement) => {
   let lineBreak = code.style.lineBreak;
   let whiteSpace = code.style.whiteSpace;
-  code.style.lineBreak = "break-all";
+  code.style.wordBreak = "break-all";
   code.style.whiteSpace = "pre-wrap";
   const ro = new ResizeObserver(() => {
     layout(code);
