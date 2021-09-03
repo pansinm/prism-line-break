@@ -1,0 +1,35 @@
+{
+  "name": "@sinm/prism-line-break",
+  "version": "1.0.0",
+  "description": "prism line break",
+  "main": "dist/index.js",
+  "dependencies": {
+    "resize-observer": "^1.0.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pansinm/prism-line-break.git"
+  },
+  "keywords": [
+    "prism",
+    "line",
+    "break",
+    "line",
+    "number"
+  ],
+  "author": "pansinm <pansinm@foxmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pansinm/prism-line-break/issues"
+  },
+  "homepage": "https://github.com/pansinm/prism-line-break#readme",
+  "files": [
+    "dist"
+  ]
+}
