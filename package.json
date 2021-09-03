@@ -1,6 +1,6 @@
 {
   "name": "@sinm/prism-line-break",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "prism line break",
   "main": "dist/index.js",
   "dependencies": {
