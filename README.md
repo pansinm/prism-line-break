@@ -24,8 +24,8 @@ import lineBreak from '@sinm/prism-line-break';
  * </pre> 
  */
 const code = document.queySelect('code');
-const clear = lineBreak(code);
 Prism.highlightElement(codeRef.current);
+const clear = lineBreak(code);
 
 // when unmount
 clear();
